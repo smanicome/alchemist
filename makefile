@@ -8,7 +8,7 @@ TARGET= alchemist
 # Mettre ici l'ensemble des fichiers objets nécessaires aux programmes 
 # (les fichiers peuvent être situés dans des répertoires)
 #
-OBJECTS=  alchemist.o background.o
+OBJECTS=  alchemist.o background.o game.o
 
 #
 # Mettre ici vos options de compilation.
@@ -19,7 +19,7 @@ CFLAGS= -Wall -ansi -pedantic
 # Mettre ici les noms des bibliothèques et leurs locations.
 # Par exemple : -lpthread
 #
-LDLIBS= -lMLV
+LDLIBS= -lMLV -lm
 
  
 ###############################################################################
