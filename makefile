@@ -8,7 +8,7 @@ TARGET= alchemist
 # Mettre ici l'ensemble des fichiers objets nécessaires aux programmes 
 # (les fichiers peuvent être situés dans des répertoires)
 #
-OBJECTS=  alchemist.o background.o game.o
+OBJECTS=  alchemist.o background.o game.o peer.o
 
 #
 # Mettre ici vos options de compilation.
