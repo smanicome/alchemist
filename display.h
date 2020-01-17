@@ -6,6 +6,10 @@
 #include "background.h"
 #include "animate.h"
 
+/**
+ * Update the game related display
+ * Clean and rewrite
+ */
 void updateScreen(Field* field, int score, Position next2pair, MLV_Animation_player* standing_animation_player[MAX_LEVEL-1]);
 
 /**

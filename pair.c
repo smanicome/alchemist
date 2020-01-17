@@ -8,7 +8,7 @@ void generatePair(Position* pos, int available_level[MAX_LEVEL]) {
 	for (i = 1; i < MAX_LEVEL-1; i++) {
 		availables += available_level[i];
 	}
-	
+
 	srand(time(NULL));
 	pos->left_level = (rand()%availables)+1;
 	pos->right_level = (rand()%availables)+1;
@@ -47,8 +47,8 @@ void nextPair(Field* field, int score, Position next2pair, MLV_Animation_player*
 
 			if ( MLV_get_keyboard_state( MLV_KEYBOARD_LEFT ) == MLV_PRESSED ) {
 				if (pos->alignement > 0) {
-					slimeJump(jumping_animation_player[ pos->left_level-1 ], pos->alignement, -1, LEFT);
-					slimeJump(jumping_animation_player[ pos->right_level-1 ], pos->alignement + 1 - pos->vertical, -1 - pos->vertical, LEFT);
+					slimeJump(jumping_animation_player[ pos->left_level-1 ], pos->alignement, -1 - pos->vertical, LEFT);
+					slimeJump(jumping_animation_player[ pos->right_level-1 ], pos->alignement + 1 - pos->vertical, -1, LEFT);
 					pos->alignement--;
 				}
 				single_press = 0;
@@ -57,13 +57,13 @@ void nextPair(Field* field, int score, Position next2pair, MLV_Animation_player*
 			if ( MLV_get_keyboard_state( MLV_KEYBOARD_RIGHT ) == MLV_PRESSED ) {
 				if (pos->vertical && pos->alignement < 5) {
 
-					slimeJump(jumping_animation_player[ pos->right_level-1 ], pos->alignement + 1 - pos->vertical, -1 - pos->vertical, RIGHT);
-					slimeJump(jumping_animation_player[ pos->left_level-1 ], pos->alignement, -1, RIGHT);
+					slimeJump(jumping_animation_player[ pos->right_level-1 ], pos->alignement, -1, RIGHT);
+					slimeJump(jumping_animation_player[ pos->left_level-1 ], pos->alignement, -2, RIGHT);
 					pos->alignement++;
 
 				} else if(!pos->vertical && pos->alignement < 4){
 
-					slimeJump(jumping_animation_player[ pos->right_level-1 ], pos->alignement + 1 - pos->vertical, -1 - pos->vertical, RIGHT);
+					slimeJump(jumping_animation_player[ pos->right_level-1 ], pos->alignement + 1, -1, RIGHT);
 					slimeJump(jumping_animation_player[ pos->left_level-1 ], pos->alignement, -1, RIGHT);
 					pos->alignement++;
 
@@ -85,7 +85,7 @@ void nextPair(Field* field, int score, Position next2pair, MLV_Animation_player*
 	}
 
 	while(MLV_get_keyboard_state( MLV_KEYBOARD_DOWN ) != MLV_RELEASED){}
-	
+
 	return;
 }
 
@@ -99,6 +99,6 @@ int fallPair(Field* field, MLV_Animation_player* rolling_animation_player[MAX_LE
 			still_running = fillSlot(field->slots, field->pos->alignement, -1, ROW_COUNT-1, field->pos->left_level, rolling_animation_player);
 			still_running = fillSlot(field->slots, field->pos->alignement+1, -1, ROW_COUNT-1, field->pos->right_level, rolling_animation_player);
 		}
-		
+
 		return still_running;
 }
