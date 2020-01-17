@@ -3,14 +3,17 @@
 
 #define WINDOW_WIDTH 1800
 #define WINDOW_HEIGHT 1400
-#define BALL_RADIUS 50
+#define SLIME_SIZE 100
 #define ROW_COUNT 8
 #define COL_COUNT 6
 #define MAX_LEVEL 11
+#define STANDING_FRAMES 12
+#define ROLLING_FRAMES 21
+#define JUMPING_FRAMES 4
 
 typedef struct position Position;
 typedef struct field Field;
-typedef struct cell Cell;
+
 struct position {
 	int alignement;
 	int vertical;
@@ -21,12 +24,6 @@ struct position {
 struct field {
 	int slots[ROW_COUNT][COL_COUNT];
 	Position* pos;
-};
-
-struct cell {
-	int x;
-	int y;
-	Cell* previous;
 };
 
 
