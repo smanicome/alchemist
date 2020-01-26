@@ -28,8 +28,8 @@ void game();
 void initField(Field* field, Position* next2pair);
 
 /**
- * Put slime at the lowest row availabe in the same column
- * If there aren't any signal end of game
+ * Put slime at the lowest row available in the same column
+ * If there aren't any, signal end of game
  * recursive calls
  */
 int fillSlot(int slots[ROW_COUNT][COL_COUNT], int alignement, int previous_height, int height, int elt, MLV_Animation_player* rolling_animation_player[MAX_LEVEL-1]);

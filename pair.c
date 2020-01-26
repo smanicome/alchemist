@@ -25,18 +25,20 @@ void nextPair(Field* field, int score, Position next2pair, MLV_Animation_player*
 				if (pos->vertical) {
 					int tmp;
 
-					slimeJump( jumping_animation_player[ pos->left_level-1 ], pos->alignement, -2, RIGHT );
-					rollDown( rolling_animation_player[ pos->left_level-1 ], pos->alignement+1, -2, 1 );
-
-					tmp = pos->left_level;
-					pos->left_level = pos->right_level;
-					pos->right_level = tmp;
-
 					if (pos->alignement==COL_COUNT-1) {
-						pos->alignement--;
-					}
+            slimeJump(jumping_animation_player[pos->right_level - 1], pos->alignement, -1, LEFT);
+            pos->alignement--;
+          } else {
+            slimeJump(jumping_animation_player[pos->left_level - 1], pos->alignement, -2, RIGHT);
+          }
 
-				} else {
+          rollDown(rolling_animation_player[pos->left_level - 1], pos->alignement + 1, -2, 1);
+
+          tmp = pos->left_level;
+          pos->left_level = pos->right_level;
+          pos->right_level = tmp;
+
+        } else {
 					rollUp( rolling_animation_player[ pos->left_level-1 ], pos->alignement, -1 );
 					slimeJump( jumping_animation_player[ pos->right_level-1 ], pos->alignement+1, -1, LEFT );
 
